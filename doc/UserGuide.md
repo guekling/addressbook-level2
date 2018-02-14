@@ -53,8 +53,8 @@ Examples:
 Shows a list of all persons in the address book.<br>
 Format: `list`
 
-### Finding all persons containing any keyword in their name: `find`
-Finds persons whose names contain any of the given keywords.<br>
+### Finding all persons containing any keyword in their name or address: `find`
+Finds persons whose names or addresses contain any of the given keywords.<br>
 Format: `find KEYWORD [MORE_KEYWORDS]`
 
 > The search is case sensitive, the order of the keywords does not matter, only the name is searched, 
@@ -63,6 +63,8 @@ and persons matching at least one keyword will be returned (i.e. `OR` search).
 Examples: 
 * `find John`<br>
   Returns `John Doe` but not `john`
+* `find Clementi`<br>
+  Returns Any person having living in `Clementi`
 * `find Betsy Tim John`<br>
   Returns Any person having names `Betsy`, `Tim`, or `John`
 
