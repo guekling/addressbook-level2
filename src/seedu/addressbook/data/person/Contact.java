@@ -5,7 +5,10 @@ public class Contact {
     public final String value;
     private boolean isPrivate;
 
-    public Contact(String value, boolean isPrivate) {
+    /**
+     * Validates given value.
+     */
+    protected Contact(String value, boolean isPrivate) {
         this.isPrivate = isPrivate;
         String trimmedValue = value.trim();
         this.value = trimmedValue;
