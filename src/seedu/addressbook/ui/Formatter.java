@@ -57,6 +57,7 @@ public class Formatter {
         return new String[] {result.feedbackToUser, DIVIDER};
     }
 
+    /** Formats message(s) to be shown to the user */
     public String formatDisplayMessageToUser(String message) {
         return LINE_PREFIX + message.replace("\n", LS + LINE_PREFIX);
     }
