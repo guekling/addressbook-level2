@@ -50,9 +50,18 @@
   list
   add Esther Potato p/555555 e/esther@not.a.real.potato pa/555, epsilon street t/tubers t/starchy
   list
+  add Denise Goh p/66666666 e/denise@gmail.com a/block 10, joo seng road t/friends
 
   # should not allow adding duplicate persons
   add Esther Potato p/555555 e/esther@not.a.real.potato pa/555, epsilon street t/tubers t/starchy
+
+##########################################################
+# test sort command
+##########################################################
+
+# sort the names by alphabetical order
+sort
+list
 
 ##########################################################
 # test view/viewall persons command
