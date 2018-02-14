@@ -1,9 +1,5 @@
 package seedu.addressbook.ui;
 
-import static seedu.addressbook.common.Messages.MESSAGE_GOODBYE;
-import static seedu.addressbook.common.Messages.MESSAGE_INIT_FAILED;
-import static seedu.addressbook.common.Messages.MESSAGE_USING_STORAGE_FILE;
-
 import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
@@ -88,7 +84,7 @@ public class TextUi {
 
 
     public void showInitFailedMessage() {
-        showToUser(MESSAGE_INIT_FAILED, DIVIDER, DIVIDER);
+        showToUser(formatter.getInitFailedMessage());
     }
 
     /** Shows message(s) to the user */
