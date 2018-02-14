@@ -98,13 +98,17 @@
   find 23912039120
   # matching should be case-sensitive
   find betsy
+  find Delta
 
   # find unique keyword
   find Betsy
+  find delta
   # find multiple with same keyword
   find Dickson
+  find street
   # find multiple with some keywords
   find Charlie Betsy
+  find delta alpha
 
 ##########################################################
 # test delete person command
