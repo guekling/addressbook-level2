@@ -24,22 +24,27 @@ public class FindCommandTest {
     public void execute() throws IllegalValueException {
         //same word, same case: matched
         assertFindCommandBehavior(new String[]{"Amy"}, Arrays.asList(td.amy));
+        assertFindCommandBehavior(new String[]{"NUS"}, Arrays.asList(td.dan));
 
         //same word, different case: not matched
         assertFindCommandBehavior(new String[]{"aMy"}, Collections.emptyList());
+        assertFindCommandBehavior(new String[]{"nus"}, Collections.emptyList());
 
         //partial word: not matched
         assertFindCommandBehavior(new String[]{"my"}, Collections.emptyList());
+        assertFindCommandBehavior(new String[]{"us"}, Collections.emptyList());
 
         //multiple words: matched
         assertFindCommandBehavior(new String[]{"Amy", "Bill", "Candy", "Destiny"},
                 Arrays.asList(td.amy, td.bill, td.candy));
+        assertFindCommandBehavior(new String[]{"Clementi", "NUS"}, Arrays.asList(td.amy, td.bill, td.candy, td.dan));
 
         //repeated keywords: matched
         assertFindCommandBehavior(new String[]{"Amy", "Amy"}, Arrays.asList(td.amy));
+        assertFindCommandBehavior(new String[]{"NUS", "NUS"}, Arrays.asList(td.dan));
 
-        //Keyword matching a word in address: not matched
-        assertFindCommandBehavior(new String[]{"Clementi"}, Collections.emptyList());
+        //Keyword matching a word in email: not matched
+        assertFindCommandBehavior(new String[]{"gmail"}, Collections.emptyList());
     }
 
     /**
