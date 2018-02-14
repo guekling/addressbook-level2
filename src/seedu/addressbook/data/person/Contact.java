@@ -11,6 +11,11 @@ public class Contact {
         this.value = trimmedValue;
     }
 
+    @Override
+    public String toString() {
+        return value;
+    }
+
     public boolean isPrivate() {
         return isPrivate;
     }
