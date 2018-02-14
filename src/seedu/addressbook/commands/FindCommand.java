@@ -36,8 +36,21 @@ public class FindCommand extends Command {
 
     @Override
     public CommandResult execute() {
-        final List<ReadOnlyPerson> personsFound = getPersonsWithNameContainingAnyKeyword(keywords);
+        final List<ReadOnlyPerson> personsFound = getPersonsWithNameAndAddressContainingAnyKeyword(keywords);
         return new CommandResult(getMessageForPersonListShownSummary(personsFound), personsFound);
+    }
+
+    /**
+     * Retrieves all persons in the address book whose names and addresses contain some of the specified keywords.
+     *
+     * @param keywords for searching
+     * @return list of persons found
+     */
+    private List<ReadOnlyPerson> getPersonsWithNameAndAddressContainingAnyKeyword(Set<String> keywords) {
+        final List<ReadOnlyPerson> matchedPersons = getPersonsWithNameContainingAnyKeyword(keywords);
+        matchedPersons.addAll(getPersonsWithAddressContainingAnyKeyword(keywords));
+
+        return matchedPersons;
     }
 
     /**
@@ -51,6 +64,23 @@ public class FindCommand extends Command {
         for (ReadOnlyPerson person : addressBook.getAllPersons()) {
             final Set<String> wordsInName = new HashSet<>(person.getName().getWordsInName());
             if (!Collections.disjoint(wordsInName, keywords)) {
+                matchedPersons.add(person);
+            }
+        }
+        return matchedPersons;
+    }
+
+    /**
+     * Retrieves all persons in the address book whose addresses contain some of the specified keywords.
+     *
+     * @param keywords for searching
+     * @return list of persons found
+     */
+    private List<ReadOnlyPerson> getPersonsWithAddressContainingAnyKeyword(Set<String> keywords) {
+        final List<ReadOnlyPerson> matchedPersons = new ArrayList<>();
+        for (ReadOnlyPerson person : addressBook.getAllPersons()) {
+            final Set<String> wordsInAddress = new HashSet<>(person.getAddress().getWordsInAddress());
+            if (!Collections.disjoint(wordsInAddress, keywords)) {
                 matchedPersons.add(person);
             }
         }
