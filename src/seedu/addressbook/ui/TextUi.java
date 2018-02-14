@@ -83,7 +83,7 @@ public class TextUi {
     }
 
     public void showGoodbyeMessage() {
-        showToUser(MESSAGE_GOODBYE, DIVIDER, DIVIDER);
+        showToUser(formatter.getGoodbyeMessage());
     }
 
 
