@@ -5,6 +5,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+import seedu.addressbook.data.person.NameComparator;
 import seedu.addressbook.data.person.Person;
 import seedu.addressbook.data.person.ReadOnlyPerson;
 import seedu.addressbook.data.person.UniquePersonList;
@@ -105,6 +106,13 @@ public class AddressBook {
     public void clear() {
         allPersons.clear();
         allTags.clear();
+    }
+
+    /**
+     * Arrange the names of all persons in the address book by alphabetical order.
+     */
+    public void sort() {
+        allPersons.sort(new NameComparator());
     }
 
     /**

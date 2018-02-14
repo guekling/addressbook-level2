@@ -24,7 +24,7 @@ public class SortCommand extends Command {
 
     @Override
     public CommandResult execute() {
-        addressBook.clear();
+        addressBook.sort();
         return new CommandResult(MESSAGE_SUCCESS);
     }
 
