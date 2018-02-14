@@ -1,5 +1,7 @@
 package seedu.addressbook.ui;
 
+import seedu.addressbook.commands.CommandResult;
+
 import static seedu.addressbook.common.Messages.MESSAGE_GOODBYE;
 import static seedu.addressbook.common.Messages.MESSAGE_INIT_FAILED;
 import static seedu.addressbook.common.Messages.MESSAGE_PROGRAM_LAUNCH_ARGS_USAGE;
@@ -47,9 +49,12 @@ public class Formatter {
         return new String[] {MESSAGE_INIT_FAILED, DIVIDER, DIVIDER};
     }
 
+    public String[] getResultToUser(CommandResult result) {
+        return new String[] {result.feedbackToUser, DIVIDER};
+    }
+
     public String formatDisplayMessageToUser(String message) {
         return LINE_PREFIX + message.replace("\n", LS + LINE_PREFIX);
     }
-
 
 }
