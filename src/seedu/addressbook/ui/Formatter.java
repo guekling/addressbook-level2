@@ -35,6 +35,10 @@ public class Formatter {
         return new String[] {DIVIDER, DIVIDER, MESSAGE_WELCOME, version, MESSAGE_PROGRAM_LAUNCH_ARGS_USAGE, storageFileInfo, DIVIDER};
     }
 
+    public String getStorageFileInfo(String storageFilePath) {
+        return String.format(MESSAGE_USING_STORAGE_FILE, storageFilePath);
+    }
+
     public String[] getGoodbyeMessage() {
         return new String[] {MESSAGE_GOODBYE, DIVIDER, DIVIDER};
     }

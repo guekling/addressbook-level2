@@ -74,7 +74,7 @@ public class TextUi {
 
 
     public void showWelcomeMessage(String version, String storageFilePath) {
-        String storageFileInfo = String.format(MESSAGE_USING_STORAGE_FILE, storageFilePath);
+        String storageFileInfo = formatter.getStorageFileInfo(storageFilePath);
         showToUser(formatter.getWelcomeMessage(version, storageFileInfo));
     }
 
