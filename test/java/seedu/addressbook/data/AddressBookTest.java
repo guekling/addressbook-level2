@@ -178,6 +178,19 @@ public class AddressBookTest {
         assertTrue(isIdentical(allTags, tagsToCheck));
     }
 
+    @Test
+    public void sort() throws Exception {
+        defaultAddressBook.addPerson(davidElliot);
+        defaultAddressBook.addPerson(charlieDouglas);
+        defaultAddressBook.sort();
+
+        UniquePersonList allPersons = defaultAddressBook.getAllPersons();
+        UniquePersonList sortedListToCheck = new UniquePersonList(aliceBetsy, bobChaplin,
+                charlieDouglas, davidElliot);
+
+        assertTrue(isIdentical(allPersons, sortedListToCheck));
+    }
+
     /**
      * Returns true if the given Tag object is found in the tag list of the given AddressBook.
      */
