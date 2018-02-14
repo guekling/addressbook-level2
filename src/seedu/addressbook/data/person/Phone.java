@@ -30,9 +30,4 @@ public class Phone extends Contact {
     public static boolean isValidPhone(String test) {
         return test.matches(PHONE_VALIDATION_REGEX);
     }
-
-    @Override
-    public int hashCode() {
-        return value.hashCode();
-    }
 }

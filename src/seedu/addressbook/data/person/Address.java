@@ -30,9 +30,4 @@ public class Address extends Contact {
     public static boolean isValidAddress(String test) {
         return test.matches(ADDRESS_VALIDATION_REGEX);
     }
-
-    @Override
-    public int hashCode() {
-        return value.hashCode();
-    }
 }

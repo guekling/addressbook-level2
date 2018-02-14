@@ -23,6 +23,11 @@ public class Contact {
                 && this.value.equals(((Contact) other).value)); // state check
     }
 
+    @Override
+    public int hashCode() {
+        return value.hashCode();
+    }
+
     public boolean isPrivate() {
         return isPrivate;
     }
